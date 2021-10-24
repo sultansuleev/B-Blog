@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
+$primary-color: #000000
+$secondary-color: #ffffff
+$interaction-color: #1d9bf0
+$text-color: #d9d9d9
+
+html,
+body
+  padding: 0
+  margin: 0
+  font-family: 'Roboto', sans-serif
+  background-color: $primary-color
+
+a
+  color: inherit
+  text-decoration: none
+
+*
+  box-sizing: border-box
+
+header
+  display: flex
+  align-items: center
+  justify-content: start
+  padding: 1em 7em
+  background-color: $primary-color
+  color: $text-color
+  font-weight: bold
+  a
+    font-size: 22px
+    margin-right: 2em
+  >.logo
+    display: flex
+    flex-direction: row
+    align-items: center
+    margin: 0
+    padding: 0
+    margin-right: 2em
+    >img
+      max-width: 50px
+      height: auto
+      margin-right: 0.5em
+
+.container
+  width: 40%
+  margin: 0 auto
+
+h1
+  text-align: center
+  color: $text-color
+
+.blog-item
+  background-color: $primary-color
+  padding: 2em 2em 1em
+  margin-bottom: 26px
+  border: 1px solid $secondary-color
+  border-radius: 30px
+  >h5
+    margin: 0
+    margin: bottom 10px
+    text-transform: capitalize
+    color: $text-color
+    font-size: 19px
+  >p
+    text-transform: capitalize
+    color: darken($text-color, 5%)
+    font-size: 16px
+  >.image-container
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 1em
+    >img
+      border-radius: 1em
+  >.text-align-right
+    text-align: right
+    >a
+      background-color: $interaction-color
+      text-decoration: none
+      display: inline-block
+      transition: background-color .4 ease
+      border-radius: 20px
+      padding: 8px 20px
+      color: #fff
+
+      &:hover
+        background-color: darken($interaction-color, 5%)
+
+.details-page
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  padding: 0 0 3em 0
+  >h1
+    text-transform: uppercase
+  >p
+    color: $text-color
+    text-transform: capitalize
+
+.about-pg
+  text-align: center
+  >p
+    color: $text-color
+    text-transform: capitalize
+    font-size: 19px
