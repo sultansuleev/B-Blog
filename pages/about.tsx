@@ -1,8 +1,4 @@
-import type { InferGetStaticPropsType, NextPage } from 'next'
-import { useState } from 'react'
-import BlogItem from '../components/BlogItem'
 import Layout from '../components/Layout'
-import { IPost } from '../types'
 
 export default function Home() {
 	return (
