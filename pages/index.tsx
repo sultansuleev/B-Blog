@@ -1,6 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { useState } from 'react'
 import BlogItem from '../components/BlogItem'
+import InputForm from '../components/InputForm'
 import Layout from '../components/Layout'
 import { IPost } from '../types'
 
@@ -13,8 +14,8 @@ export default function Home({
 
 	return (
 		<Layout title='Tweets'>
+			<InputForm />
 			<h1>Intresting tweets</h1>
-
 			<div className='posts'>
 				{postList.map((post: IPost) => (
 					<BlogItem
