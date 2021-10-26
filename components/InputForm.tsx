@@ -1,67 +1,32 @@
-import { useState } from 'react'
 import { Post } from '../types'
 
-const defaultPost: Post = {
-	userId: Math.floor(Math.random() * 16) + 5,
-	title: '',
-	body: '',
+interface IForm {
+	post: Post
+	onPostChange: <P extends keyof Post>(prop: P, value: any) => void
+	handleSubmit: (e: any) => void
+	className: string
 }
 
-const InputForm = () => {
-	const [post, setPost] = useState(defaultPost)
-
-	const onPostChange = <P extends keyof Post>(prop: P, value: any) => {
-		setPost({ ...post, [prop]: value })
-	}
-
-	const handleSubmit = (e: any) => {
-		e.preventDefault()
-		var userid = post.userId
-		var new_title = post.title
-		var new_body = post.body
-
-		console.log('Input Data: ' + userid + ' ' + new_title + ' ' + new_body)
-
-		fetch('https://jsonplaceholder.typicode.com/posts', {
-			method: 'POST',
-			body: JSON.stringify({
-				title: new_title,
-				body: new_body,
-				userId: userid,
-			}),
-			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
-			},
-		})
-			.then(response => response.json())
-			.then(json => {
-				console.log('response: ' + JSON.stringify(json))
-			})
-	}
-
+const InputForm: React.FC<IForm> = ({
+	post,
+	onPostChange,
+	handleSubmit,
+	className,
+}) => {
 	return (
-		<div className='form-blank'>
+		<div className={`form-blank ` + className}>
 			<h2>Post Form</h2>
 
 			<form
 				className='myForm'
 				noValidate
 				autoComplete='off'
-				onSubmit={handleSubmit}
+				onSubmit={e => handleSubmit(e)}
 			>
-				<label>
-					<b>userId: </b>
-				</label>
-				<input
-					type='number'
-					id='userId'
-					name='userId'
-					onChange={e => onPostChange('userId', e.target.value)}
-					value={post.userId}
-				/>
+				<input type='hidden' id='userId' name='userId' value={post.userId} />
 				<br />
 				<label>
-					<b>title:</b>
+					<b>title</b>
 				</label>
 				<input
 					type='text'
@@ -72,17 +37,16 @@ const InputForm = () => {
 				/>
 				<br />
 				<label>
-					<b>body:</b>
+					<b>body</b>
 				</label>
-				<input
-					type='text'
+				<textarea
 					id='body'
 					name='body'
 					onChange={e => onPostChange('body', e.target.value)}
 					value={post.body}
 				/>
 
-				<button>Submit</button>
+				<button className='primaty-btn'>Submit</button>
 			</form>
 		</div>
 	)
