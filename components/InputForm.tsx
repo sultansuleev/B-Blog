@@ -1,28 +1,24 @@
 import { Post } from '../types'
+import { FormContainer, Form, Button } from '../styles'
 
 interface IForm {
 	post: Post
 	onPostChange: <P extends keyof Post>(prop: P, value: any) => void
 	handleSubmit: (e: any) => void
-	className: string
+	showForm: boolean
 }
 
 const InputForm: React.FC<IForm> = ({
 	post,
 	onPostChange,
 	handleSubmit,
-	className,
+	showForm,
 }) => {
 	return (
-		<div className={`form-blank ` + className}>
+		<FormContainer showForm={showForm}>
 			<h2>Post Form</h2>
 
-			<form
-				className='myForm'
-				noValidate
-				autoComplete='off'
-				onSubmit={e => handleSubmit(e)}
-			>
+			<Form noValidate autoComplete='off' onSubmit={e => handleSubmit(e)}>
 				<input type='hidden' id='userId' name='userId' value={post.userId} />
 				<br />
 				<label>
@@ -46,9 +42,9 @@ const InputForm: React.FC<IForm> = ({
 					value={post.body}
 				/>
 
-				<button className='primaty-btn'>Submit</button>
-			</form>
-		</div>
+				<Button>Submit</Button>
+			</Form>
+		</FormContainer>
 	)
 }
 

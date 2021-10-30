@@ -1,9 +1,10 @@
-import type { InferGetStaticPropsType, NextPage } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import { useEffect, useState } from 'react'
 import BlogItem from '../components/BlogItem'
 import InputForm from '../components/InputForm'
 import Layout from '../components/Layout'
 import { IPost, Post } from '../types'
+import { Button } from '../styles'
 
 const API_URL: string = 'https://jsonplaceholder.typicode.com/posts'
 
@@ -65,16 +66,15 @@ export default function Home({
 
 	return (
 		<Layout title='Tweets'>
-			<button onClick={onClick} className='primaty-btn'>
+			<Button onClick={onClick}>
 				{showForm ? 'Hide form' : 'Write a post'}
-			</button>
+			</Button>
 			<InputForm
 				post={post}
 				onPostChange={onPostChange}
 				handleSubmit={handleSubmit}
-				className={showForm ? 'show' : ''}
+				showForm={showForm}
 			/>
-
 			<h1>Intresting tweets</h1>
 			<div className='posts'>
 				{postList.map((post: IPost) => (

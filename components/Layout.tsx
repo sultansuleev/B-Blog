@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import { Header, Container } from '../styles'
 
 const Layout = ({ title, children }: any) => {
 	return (
@@ -7,9 +8,13 @@ const Layout = ({ title, children }: any) => {
 			<Head>
 				<title>{title} | B-Blog</title>
 				<meta name='description' content='Just Blog' />
+				<link
+					href='https://fonts.googleapis.com/css2?family=Roboto'
+					rel='stylesheet'
+				/>
 			</Head>
 
-			<header>
+			<Header>
 				<Link href='/'>
 					<a className='logo'>
 						<img src='/blogger.png' alt='' />
@@ -25,9 +30,9 @@ const Layout = ({ title, children }: any) => {
 				<Link href='/about'>
 					<a>About us</a>
 				</Link>
-			</header>
+			</Header>
 
-			<div className='container'>{children}</div>
+			<Container>{children}</Container>
 		</>
 	)
 }

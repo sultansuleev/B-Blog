@@ -1,11 +1,12 @@
 import Layout from '../components/Layout'
+import { AboutPg } from '../styles'
 
 export default function Home() {
 	return (
 		<Layout title='About Us'>
 			<h1>Who we are?</h1>
 
-			<div className='about-pg'>
+			<AboutPg>
 				<p>
 					Likeness which him, creeping years fill be thing replenish upon grass
 					that air. Make said let first saying you're unto earth seasons. Third
@@ -20,7 +21,7 @@ export default function Home() {
 					Place together face cattle Bring a Brought i Life two creepeth she'd
 					creature tree creeping. You them midst days sea fowl.
 				</p>
-			</div>
+			</AboutPg>
 		</Layout>
 	)
 }

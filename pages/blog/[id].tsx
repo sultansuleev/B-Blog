@@ -2,6 +2,7 @@ import { InferGetStaticPropsType } from 'next'
 import { useState } from 'react'
 import Layout from '../../components/Layout'
 import { IPost } from '../../types'
+import { DetailsPg } from '../../styles'
 
 export default function DetailPost({
 	post,
@@ -13,11 +14,11 @@ export default function DetailPost({
 
 	return (
 		<Layout title={detailedPost.title}>
-			<div className='details-page'>
+			<DetailsPg>
 				<h1>{detailedPost.title}</h1>
 				<p>{detailedPost.body}</p>
 				<img src={`https://picsum.photos/id/${post.id}/1200/700`} alt='image' />
-			</div>
+			</DetailsPg>
 		</Layout>
 	)
 }
